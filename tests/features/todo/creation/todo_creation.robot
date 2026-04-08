@@ -71,7 +71,7 @@ Very Long Task (255+ Characters)
     Todo Creation Should Be Success    ${todo_name}    1
 
 Task With A Single Character
-    [Documentation]    Verify that the minimun valid length is 1 character
+    [Documentation]    Verify that the minimum valid length is 1 character
     [Tags]    edge
     VAR    ${todo_name}    A
     Create One Todo    ${todo_name}

@@ -60,7 +60,7 @@ Create Multiple Todo
     Counter Text Contain Should Contain Todo Count    ${count}
 
 Todo Item Should Contain Text
-    [Documentation]    Assert that at least one todo item conains the given text.
+    [Documentation]    Assert that at least one todo item contains the given text.
     [Arguments]    ${expected_text}
     Wait Until Element Is Visible    ${TODO_ITEM_LIST}
     ${items} =    Get Texts From Elements    locator=${TODO_ITEM_LIST}
@@ -163,7 +163,7 @@ Alert Should Not Exist
     ...    ACCEPT
 
 Go To Filter View
-    [Documentation]    Navigates to the given todo filter view and waits for the home page$
+    [Documentation]    Navigates to the given todo filter view and waits for the home page
     [Arguments]    ${url}
     Go To    ${url}
     Wait Until Home Page Is Loaded
