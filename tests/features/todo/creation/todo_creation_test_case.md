@@ -176,7 +176,7 @@
 
 | Field | Detail |
 |---|---|
-| **Description** | Verify that a new task does not appear in the Completed view |
+| **Description** | verify that a new task does not appear in the Completed view |
 | **Precondition** | Navigate to `/#/completed` |
 | **Input data** | Type a task + Enter |
 | **Expected result** | The task does not appear in the current view (it is not completed). It is present on `/#/`. |
