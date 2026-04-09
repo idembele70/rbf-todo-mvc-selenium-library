@@ -13,6 +13,10 @@ output.xml
 *.log
 .venv/
 results/
+*selenium-screenshot*.png
+
+pabot_results/
+.pabotsuitenames
 
 todomvc/.DS_Store
 todomvc/node_modules
