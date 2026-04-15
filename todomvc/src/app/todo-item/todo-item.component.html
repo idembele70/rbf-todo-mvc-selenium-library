@@ -9,11 +9,11 @@
         <input #todoInputRef class="edit" id="edit-todo-input"
           [(ngModel)]="title"
           (focus)="handleFocus($event)"
-          (blur)="handleBlur($event)"
+          (keyup.escape)="updateTodo()"
           (keyup.enter)="updateTodo()" />
-        <label class="visually-hidden" htmlFor="edit-todo-input">
-          Edit Todo title
-        </label>
-    </div>
-  }
-</li>
+          <label class="visually-hidden" htmlFor="edit-todo-input">
+            Edit Todo title
+          </label>
+        </div>
+      }
+    </li>
