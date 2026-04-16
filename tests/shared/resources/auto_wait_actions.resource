@@ -1,7 +1,5 @@
 *** Settings ***
 Library     SeleniumLibrary
-Resource    ../resources/auto_wait_actions.resource
-
 
 *** Variables ***
 ${DEFAULT_TIMEOUT}          5s

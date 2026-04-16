@@ -57,7 +57,7 @@ Submit Edit
 Get Todo Row Locator By Text
     [Documentation]    Return the app-todo-item containing the given text.
     [Arguments]    ${text}
-    VAR    ${locator} =    //app-todo-item[normalize-space(.)="${text}"]
+    VAR    ${locator}    //app-todo-item[normalize-space(.)="${text}"]
     Wait Until Element Is Visible    ${locator}
     RETURN    ${locator}
 

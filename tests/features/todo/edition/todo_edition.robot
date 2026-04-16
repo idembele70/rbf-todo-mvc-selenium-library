@@ -55,7 +55,7 @@ Submit An Empty Edit
 Submit Whitespace Only In Edit
     [Documentation]    Replace the task text with only spaces and press Enter
     [Tags]    error    fixme
-    Edit One Todo    ${DEFAULT_TODO_NAME}    ${SPACE * 3}
+    Edit One Todo    ${DEFAULT_TODO_NAME}    ${SPACE*3}
     Todo List Should Be Empty
 
 Edit With Very Long Text
@@ -136,7 +136,7 @@ Edit A Task While On The "Completed" Filter
     Todo Text Should Exactly Be    ${name}
 
 Persistence Of Edited Task After Page Reload
-    [Documentation]    Verify that the edited title presists after a page reload
+    [Documentation]    Verify that the edited title persists after a page reload
     [Tags]    edge    fixme
     VAR    ${name}    Buy some bread
     Edit One Todo    ${DEFAULT_TODO_NAME}    ${name}
