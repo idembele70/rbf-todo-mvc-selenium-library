@@ -1,9 +1,10 @@
 *** Settings ***
 Library             SeleniumLibrary
-Resource            ../home_page.resource
+Resource            ../resources/home_page.resource
 
-Test Setup         Open Browser To All Todos Page
+Test Setup          Open Browser To All Todos Page
 Test Teardown       Close Browser
+Test Tags           create
 
 
 *** Test Cases ***
@@ -58,7 +59,7 @@ Submit Whitespace Only
 Submit Tabs Only
     [Documentation]    Verify that non-space invisible characters are also rejected
     [Tags]    negative
-    ${todo_name} =    Evaluate    "\t\t"
+    ${todo_name}    Evaluate    "\t\t"
     Create One Todo    ${todo_name}
     Todo List Should Be Empty
     Todo Counter Should Be Hidden
@@ -66,7 +67,7 @@ Submit Tabs Only
 Very Long Task (255+ Characters)
     [Documentation]    Verify behavior with a string exceeding typical length limits
     [Tags]    edge
-    ${todo_name} =    Evaluate    'a' * 300
+    ${todo_name}    Evaluate    'a' * 300
     Create One Todo    ${todo_name}
     Todo Creation Should Be Success    ${todo_name}    1
 
@@ -81,8 +82,9 @@ Text With Leading And Trailing Spaces
     [Documentation]    Verify that trim is applied without removing internal spaces
     [Tags]    edge    fixme
     # The leading and ending space are not trimmed.
-    VAR    ${todo_name}    '  My task  '
-    Create One Todo    ${todo_name}
+    VAR    ${todo_name}    My task
+    Create One Todo    ${SPACE*2}${todo_name}${SPACE*2}
+    Todo Text Should Exactly Be    ${todo_name}
 
 Html Injection In The Task Title
     [Documentation]    Verify that HTML content is displayed as plain text
@@ -95,13 +97,14 @@ Html Injection In The Task Title
 Duplicate Task Created Twice
     [Documentation]    Verify there is no automatic deduplication
     [Tags]    edge
-    VAR    @{names} =    Clean the house    Clean the house
+    VAR    @{names}    Clean the house    Clean the house
     Create Multiple Todo    @{names}
     Todo Count Should Be    2
 
 Create A Task While On The "Active" Filter
     [Documentation]    Verify that a new task is visible in the Active view
     [Tags]    edge
+    [Setup]    Open Browser To Active Todos Page
     Go To Filter View    ${ACTIVE_TODOS_URL}
     VAR    ${name}    active todo
     Create One Todo    ${name}
